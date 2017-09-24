@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+
+<mapper namespace="com.boot.entity.EssageEntity">  
+
+<resultMap type="com.boot.entity.EssageEntityEssage" id="baseResult"><result column="id" property="id"></result>
+<result column="content" property="content"></result>
+<result column="fromUserId" property="fromUserId"></result>
+<result column="toUserId" property="toUserId"></result>
+<result column="sendTime" property="sendTime"></result>
+<result column="desc" property="desc"></result>
+<result column="tmp1" property="tmp1"></result>
+</resultMap><sql id="baseColums">,
+</sql><select id="selectByPrimaryKey" resultMap="baseResult">select id, <include refid="baseColums">from t_essagewhere id=#{id}</select>
+select id, <include refid="baseColums">from t_essage<where><if id != null > id= #{id} and </if>
+<if content != null > content= #{content} and </if>
+<if fromUserId != null > fromUserId= #{fromUserId} and </if>
+<if toUserId != null > toUserId= #{toUserId} and </if>
+<if sendTime != null > sendTime= #{sendTime} and </if>
+<if desc != null > desc= #{desc} and </if>
+<if tmp1 != null > tmp1= #{tmp1} and </if>
+	</where></select>
